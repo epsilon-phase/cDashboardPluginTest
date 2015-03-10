@@ -1,4 +1,4 @@
-﻿namespace cDashboard
+﻿namespace cDashboardPluginTest
 {
     partial class Funny
     {
@@ -48,6 +48,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Funny";
             this.Text = "Funny";
+            this.LocationChanged += new System.EventHandler(this.Funny_LocationChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

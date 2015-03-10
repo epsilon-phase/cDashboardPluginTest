@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //(C) Alexander White under the MIT License
-namespace cDashboard
+namespace cDashboardPluginTest
 {
     public partial class Funny : Form
     {
@@ -16,6 +16,11 @@ namespace cDashboard
         {
             InitializeComponent();
 
+        }
+
+        private void Funny_LocationChanged(object sender, EventArgs e)
+        {
+            cDashboardPluginTest.PluginInterface.f = true;
         }
     }
 }

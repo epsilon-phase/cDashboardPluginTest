@@ -5,7 +5,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows.Forms;
 //(C) Alexander White under the MIT License
-namespace CdashboardPluginTest
+namespace cDashboardPluginTest
 {
     //This tag tells the ComponentModel.Composition components to export this publically for use in cDashboard, specifying the type that this is to be shown as.
     [Export(typeof(IPlugin))]
@@ -13,6 +13,17 @@ namespace CdashboardPluginTest
     [ExportMetadata("name", "Funny")]
     public class PluginInterface : cDashboard.IPlugin
     {
+        public static bool f = true;
+        /// <summary>
+        /// The forms now choose when they are saved.
+        /// </summary>
+        public bool NeedsSaving
+        {
+            get
+            {
+                return f;
+            }
+        }
         //Provides access to the cDashboard main code base.
         private WeakReference cDash=null;
         //save the initialized forms, but allow the cDashboard to dispose of them if one is closed.
@@ -54,7 +65,7 @@ namespace CdashboardPluginTest
                     }
                 }
             System.IO.File.WriteAllLines(settingsLocation + "funny.cDash", lines.ToArray());
-          
+            f = false;
         }
 
         //This loads the positions of the forms in order to display them as they were.
